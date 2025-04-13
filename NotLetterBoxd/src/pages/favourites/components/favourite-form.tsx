@@ -2,6 +2,7 @@ import { SubmitHandler, useFormContext } from "react-hook-form"
 import AdInput from "@/components/ui/ad-input";
 import { Button } from "@/components/ui/shadcn/button";
 import { FavouriteFormSchema } from "../types/favourite-form-schema";
+import AdSelect from "@/components/ui/ad-select";
 
 
  
@@ -24,6 +25,19 @@ export function FavouriteForm(){
                 placeholder="Enter name"
                 label="Name"
                 className="w-full"
+            />
+
+
+            <AdSelect
+                control={form.control}
+                name="category"
+                label="Category"
+                options={[
+                    { value: "movie", label: "Movie" },
+                    { value: "book", label: "Book" },
+                    { value: "videogame", label: "Video Game" },
+                    { value: "series", label: "Series" },
+                ]}
             />
 
             <Button type="submit">Submit</Button>
