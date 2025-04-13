@@ -47,6 +47,7 @@ export default function List() {
 
   return (
     <div className="container mx-auto py-10">
+      <h1 className="text-2xl font-bold mb-4">Your Favourites</h1>
       <DataTable columns={columns} data={data} />
     </div>
   )

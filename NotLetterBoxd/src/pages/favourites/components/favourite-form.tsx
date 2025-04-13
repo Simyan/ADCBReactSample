@@ -32,12 +32,30 @@ export function FavouriteForm(){
                 control={form.control}
                 name="category"
                 label="Category"
+                className="w-full"
                 options={[
                     { value: "movie", label: "Movie" },
                     { value: "book", label: "Book" },
                     { value: "videogame", label: "Video Game" },
                     { value: "series", label: "Series" },
                 ]}
+            />
+
+            <AdInput
+                control={form.control}
+                name="genre"
+                placeholder="Enter genre"
+                label="Genre"
+                className="w-full"
+            />
+
+            <AdInput
+                control={form.control}
+                name="rating"
+                placeholder="Enter rating"
+                label="Rating"
+                className="w-full"
+                type="number"
             />
 
             <Button type="submit">Submit</Button>

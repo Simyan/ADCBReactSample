@@ -32,7 +32,7 @@ import { useController, useFormContext } from "react-hook-form";
   }: InputDefaultProps) {
 
     const {
-        field: { ref, ...field },
+        field: { ref, onChange, value, ...field },
       } = useController({
         name,
         control,
@@ -46,7 +46,16 @@ import { useController, useFormContext } from "react-hook-form";
         <FormItem>
         <FormLabel>{label}</FormLabel>
         <FormControl>
-            <Input type={type} placeholder={placeholder} {...field} ref={ref} />
+            <Input 
+                type={type} 
+                placeholder={placeholder} 
+                ref={ref} 
+                value={type === "number" ? value || "" : value}
+                onChange={(e) =>
+                    onChange(type === "number" ? +e.target.value : e.target.value) // Convert to number if type is "number"
+                }
+                {...field} 
+            />
         </FormControl>
         <FormMessage >{errorMessage}</FormMessage>
         </FormItem>
